@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./db/db.js";
 import userRoutes from "./routes/userRoute.js";
+import eventRoutes from "./routes/eventRoute.js";
 
 // Load environment variables
 dotenv.config();
@@ -19,6 +20,7 @@ app.use(express.json());
 
 // Routes
 app.use("/user", userRoutes);
+app.use("/user", eventRoutes);
 
 // Port Configuration
 const PORT = process.env.PORT || 8000;
