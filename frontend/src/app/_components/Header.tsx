@@ -20,11 +20,11 @@ function Header() {
   ];
 
   return (
-    <header className="relative w-full top-0 z-50 text-[#EDEDED] bg-[#1A1A2E]">
+    <header className="w-full top-0 z-50 text-black bg-gradient-to-r from-yellow-400 to-yellow-600 border-b-4 border-yellow-500 shadow-lg fixed">
       {/* Aurora Background */}
-      <div className="absolute inset-0 w-full h-full z-[-1]">
+      <div className="absolute inset-0 w-full h-full z-[-1] opacity-20">
         <Aurora
-          colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+          colorStops={["#FFD700", "#FFA500", "#FF4500"]}
           blend={0.5}
           amplitude={3.0}
           speed={1.5}
@@ -35,7 +35,7 @@ function Header() {
         {/* Logo */}
         <a
           href="/"
-          className="text-3xl font-extrabold tracking-wide text-[#EDEDED]"
+          className="text-3xl font-extrabold tracking-wide text-black drop-shadow-md"
         >
           Open Heavens
         </a>
@@ -46,7 +46,7 @@ function Header() {
             <a
               key={link.name}
               href={link.path}
-              className="text-[#EDEDED] hover:text-[#FFD700] transition text-lg font-semibold"
+              className="text-black hover:text-white transition text-lg font-semibold"
             >
               {link.name}
             </a>
@@ -54,14 +54,14 @@ function Header() {
         </nav>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden text-[#EDEDED] z-50" onClick={toggleMenu}>
+        <button className="md:hidden text-black z-50" onClick={toggleMenu}>
           {isOpen ? <X size={32} /> : <Menu size={32} />}
         </button>
       </div>
 
       {/* Mobile Navigation */}
       <div
-        className={`md:hidden bg-[#151A30] shadow-lg absolute w-full left-0 top-full p-6 flex flex-col space-y-4 text-center transition-all duration-300 ${
+        className={`md:hidden bg-yellow-500 shadow-lg absolute w-full left-0 top-full p-6 flex flex-col space-y-4 text-center transition-all duration-300 ${
           isOpen ? "block" : "hidden"
         }`}
       >
@@ -69,7 +69,7 @@ function Header() {
           <a
             key={link.name}
             href={link.path}
-            className="text-[#EDEDED] hover:text-[#FFD700] text-lg font-semibold transition"
+            className="text-black hover:text-white text-lg font-semibold transition"
             onClick={closeMenu}
           >
             {link.name}
