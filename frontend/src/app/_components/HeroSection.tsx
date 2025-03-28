@@ -1,11 +1,18 @@
 import React from "react";
 import Image from "next/image";
 
-function HeroSection() {
+type HeroSectionProps = {
+  onRegisterClick: () => void;
+};
+
+function HeroSection({ onRegisterClick }: HeroSectionProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <section className="relative w-full h-screen flex items-center justify-center">
+    <section
+      id="hero-section"
+      className="relative w-full h-screen flex items-center justify-center"
+    >
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -31,8 +38,7 @@ function HeroSection() {
             🔥 Event Details 🔥
           </h2>
           <p className="text-lg font-medium">
-            📅 <span className="font-bold">Date:</span> December 15,{" "}
-            {currentYear}
+            📅 <span className="font-bold">Date:</span> December 15, {currentYear}
           </p>
           <p className="text-lg font-medium">
             📍 <span className="font-bold">Location:</span> Grand Arena, New
@@ -49,7 +55,10 @@ function HeroSection() {
           </p>
 
           {/* Register Button */}
-          <button className="mt-6 bg-black text-yellow-400 border-2 border-yellow-500 hover:bg-yellow-500 hover:text-black font-extrabold py-3 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <button
+            onClick={onRegisterClick}
+            className="mt-6 bg-black text-yellow-400 border-2 border-yellow-500 hover:bg-yellow-500 hover:text-black font-extrabold py-3 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
             Register Now
           </button>
         </div>

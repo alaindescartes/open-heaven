@@ -1,17 +1,34 @@
+'use client';
+
+import { useRef, useState } from "react";
 import Artists from "./_components/Artists";
 import HeroSection from "./_components/HeroSection";
+import RegisterButton from "./_components/RegisterButton";
 
 export default function Home() {
+  const heroRef = useRef<HTMLElement | null>(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const scrollToHero = () => {
+    const hero = document.getElementById("hero-section");
+    if (hero) {
+      hero.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="w-full">
-      {/* Hero Section with Parallax */}
+      {/* Show modal when Register Now is clicked */}
+      {showModal && <RegisterButton onClose={() => setShowModal(false)} />}
+
+      {/* Hero Section */}
       <div className="relative w-full h-screen overflow-hidden">
         <div
           className="absolute inset-0 bg-fixed bg-cover bg-center"
           style={{ backgroundImage: "url('/concert.jpg')" }}
         ></div>
         <div className="relative z-10">
-          <HeroSection />
+          <HeroSection onRegisterClick={() => setShowModal(true)} />
         </div>
       </div>
 
@@ -31,7 +48,10 @@ export default function Home() {
               Heavens 2024, re-live the unforgettable experience of 2024, as we
               step into 2025 you don't want to miss!
             </p>
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:cursor-pointer">
+            <button
+              onClick={scrollToHero}
+              className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:cursor-pointer"
+            >
               GRAB A FREE TICKET
             </button>
           </div>
@@ -44,7 +64,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/* artists section */}
+
+      {/* Artists section */}
       <Artists />
     </div>
   );
