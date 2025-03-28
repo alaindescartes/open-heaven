@@ -9,6 +9,12 @@ const ticketSchema = new mongoose.Schema({
   ticketId: { type: String, required: true, unique: true },
   qrCode: { type: String }, // base64 string
   createdAt: { type: Date, default: Date.now },
+  checkedIn: { type: Boolean, default: false },
+checkedInCount: { type: Number, default: 0 },
+
+  
+ 
+
 });
 
 export default mongoose.model("Ticket", ticketSchema);

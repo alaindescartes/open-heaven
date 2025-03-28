@@ -5,6 +5,9 @@ import connectDB from "./db/db.js";
 import errorHandler from "./middleware/errorMiddleware.js";
 import userRoutes from "./routes/userRoute.js";
 import eventRoutes from "./routes/eventRoute.js";
+import adminRoutes from "./routes/adminRoute.js";
+
+
 
 // Load environment variables
 dotenv.config();
@@ -22,6 +25,7 @@ app.use(express.json());
 // Routes
 app.use("/user", userRoutes);
 app.use("/event", eventRoutes);
+app.use("/admin", adminRoutes);
 
 //global error handling
 app.use(errorHandler);
