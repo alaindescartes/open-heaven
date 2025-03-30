@@ -11,10 +11,13 @@ function Header() {
   const closeMenu = () => setIsOpen(false);
 
   const navLinks = [
-    { name: "Watch Live", path: "/watch-live" },
-    { name: "Featuring", path: "/featuring" },
-    { name: "About Open Heavens", path: "/about" },
-    { name: "FAQs", path: "/faqs" },
+    {
+      name: "Watch Live",
+      path: "https://www.youtube.com/@dunamisedmonton2839",
+    },
+    { name: "Featuring", path: "#featuring" },
+    // { name: "About Open Heavens", path: "#hero-section" },
+    { name: "FAQs", path: "#faqs" },
     { name: "Share", path: "/share" },
     { name: "Connect", path: "/connect" },
   ];

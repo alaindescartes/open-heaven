@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
 import { useRef, useState } from "react";
 import Artists from "./_components/Artists";
 import HeroSection from "./_components/HeroSection";
 import RegisterButton from "./_components/RegisterButton";
+import Faqs from "./_components/Faqs";
 
 export default function Home() {
   const heroRef = useRef<HTMLElement | null>(null);
@@ -33,7 +34,10 @@ export default function Home() {
       </div>
 
       {/* Second Section */}
-      <div className="relative w-full h-screen flex items-center justify-center bg-white px-6 lg:px-20 mt-10 md:mt-0 mb-14">
+      <div
+        className="relative w-full h-screen flex items-center justify-center bg-white scroll-mt-24 px-6 lg:px-20 mt-10 md:mt-0 mb-14"
+        id="hero-section"
+      >
         <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-6xl">
           {/* Text Section */}
           <div className="lg:w-1/2 text-center lg:text-left">
@@ -66,7 +70,13 @@ export default function Home() {
       </div>
 
       {/* Artists section */}
-      <Artists />
+      <div id="featuring">
+        <Artists />
+      </div>
+      {/* faqs section */}
+      <div id="faqs">
+        <Faqs />
+      </div>
     </div>
   );
 }

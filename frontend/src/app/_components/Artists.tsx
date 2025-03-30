@@ -38,7 +38,7 @@ function Artists() {
             />
           </motion.div>
         ))}
-        <SplashCursor />
+        {/* <SplashCursor /> */}
       </div>
     </section>
   );
